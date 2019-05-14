@@ -1,56 +1,28 @@
 const searchCity = () => {
-  const cityName = document.querySelector('.city-input').value
-  const cityZip = document.querySelector('.zip-input').value
+  const cityZipName = document.querySelector('.city-input').value
+
   //console.log(cityName)
   //console.log(cityZip)
-  if (cityName || cityZip) {
-    if (cityName) {
-      // search weather site using input city name
-      fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=' +
-          cityName +
-          '&appid=04edf66be47b6a7f6492012c838c7079'
-      )
-        .then(results => {
-          console.log(results)
-          return results.json()
-        })
-        .then(city => {
-          //console.log(city)
-          //console.log(city.weather[0].description)
-          document.querySelector('.results').textContent =
-            ' The weather in ' +
-            city.name +
-            ' is ' +
-            city.weather[0].description
-        })
-    }
-    //search weather site using input city zip code
-    else if (cityZip) {
-      // search weather site using input city name
-      fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=' +
-          cityZip +
-          '&appid=04edf66be47b6a7f6492012c838c7079'
-      )
-        .then(results => {
-          console.log(results)
-          return results.json()
-        })
-        .then(city => {
-          console.log({ city })
-          console.log(city.weather[0].description)
-          document.querySelector('.results').textContent =
-            ' The weather in ' +
-            city.name +
-            ' is ' +
-            city.weather[0].description
-        })
-      //display results on page
-    } else {
-      document.querySelector('.results').textContent =
-        'sorry the information you entered didnt find a city'
-    }
+  if (cityZipName) {
+    // search weather site using input city name or zip code
+    fetch(
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
+        cityZipName +
+        '&appid=04edf66be47b6a7f6492012c838c7079'
+    )
+      .then(results => {
+        console.log(results)
+        return results.json()
+      })
+      .then(city => {
+        //console.log(city)
+        //console.log(city.weather[0].description)
+        document.querySelector('.results').textContent =
+          ' The weather in ' + city.name + ' is ' + city.weather[0].description
+      })
+  } else {
+    document.querySelector('.results').textContent =
+      'sorry the information you entered didnt find a city'
   }
 }
 const main = () => {
