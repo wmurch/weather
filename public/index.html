@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weather</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/screen.css" />
   </head>
   <body>
-    <h1 class='hello-world'></h1>
+    <header class="location">
+      <section>
+        <span class="status"></span>
+      </section>
+      <section>
+        <span class="map-link">
+          <a href=""></a>
+        </span>
+      </section>
+    </header>
+    <section class="city">
+      <div class="city-section">
+        <h1 class="city-name">Type in city name here</h1>
+        <input type="text" class="city-input" />
+      </div>
+      <div class="zip-section">
+        <h2 class="zip-name">Type zip code here</h2>
+        <input type="number" class="zip-input" />
+      </div>
+      <button class="search">search</button>
+    </section>
+    <section class="results"></section>
     <script src="/main.js" charset="utf-8"></script>
   </body>
 </html>
